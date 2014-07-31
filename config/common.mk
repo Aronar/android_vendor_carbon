@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
 
 # carbon packages
 PRODUCT_PACKAGES += \
+    Apollo \
     BlueBalls \
     CarbonAbout \
     CarbonDelta \
@@ -213,15 +214,15 @@ endif
 ifdef CARBON_BUILDTYPE
 else
     CARBON_BUILDTYPE := UNOFFICIAL
-    CARBON_VERSION_MAJOR :=
-    CARBON_VERSION_MINOR :=
+    CARBON_VERSION_MAJOR :=1
+    CARBON_VERSION_MINOR :=1-5
 endif
 
 # Set Carbon version
 ifdef CARBON_RELEASE
-    CARBON_VERSION := "CARBON-KK-v"$(CARBON_VERSION_MAJOR).$(CARBON_VERSION_MINOR)
+    CARBON_VERSION := "KarbonKat-v"$(CARBON_VERSION_MAJOR).$(CARBON_VERSION_MINOR)-$(shell date +%Y%m%d-%H%M)
 else
-    CARBON_VERSION := "CARBON-KK-$(CARBON_BUILDTYPE)"-$(shell date +%Y%m%d-%H%M)
+    CARBON_VERSION := "KarbonKat-v"$(CARBON_VERSION_MAJOR).$(CARBON_VERSION_MINOR)-$(shell date +%Y%m%d-%H%M)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -231,7 +232,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.romstats.askfirst=1 \
 ro.romstats.ga=UA-43747246-1 \
-ro.romstats.name=CarbonRom- \
+ro.romstats.name=KarbonKat- \
 ro.romstats.url=http://carbon-stats.mattman.org \
 ro.romstats.version=$(CARBON_VERSION)
 
