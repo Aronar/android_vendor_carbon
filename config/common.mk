@@ -59,6 +59,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.camera-sound=1
 
+# Disable multithreaded dexopt by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.dalvik.multithread=false
+
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
@@ -103,11 +107,17 @@ PRODUCT_PACKAGES += \
     ROMStats \
     Wallpapers
 
-# dsp manager
-PRODUCT_PACKAGES += \
-    DSPManager \
-    audio_effects.conf \
-    libcyanogen-dsp
+ifneq ($(BOARD_USES_QCOM_MUSICFX),)
+    # dsp manager
+    PRODUCT_PACKAGES += \
+        DSPManager \
+        audio_effects.conf \
+        libcyanogen-dsp
+else
+    #CAF MusicFX
+    PRODUCT_PACKAGES += \
+        MusicFX
+endif
 
 # Screen recorder
 PRODUCT_PACKAGES += \
