@@ -74,6 +74,7 @@ PRODUCT_COPY_FILES += \
 # main packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
+    Calendar \
     Camera \
     Development \
     CMFileManager \
